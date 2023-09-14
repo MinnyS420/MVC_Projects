@@ -1,0 +1,41 @@
+﻿@model List<BurgerIndexViewModel>
+
+<h1>Burger Menu</h1>
+<div class="row">
+    <div class="card text-black mb-3" style="max-width: auto; margin-left: 10px;flex-direction: row; justify-content: space-between; flex-wrap: wrap;">
+        @if (Model.Count > 0)
+        {
+            @foreach (var burger in Model)
+            {
+                <div class="card-body" style="background-color: rgb(0,0,0,0); border: 0px; text-align: center;">
+                    <li style="list-style: none;">
+                        <h3>@burger.Name</h3>
+                        @if (!string.IsNullOrEmpty(burger.Name))
+                        {
+                            var imageName = burger.Name.Replace(" ", "").ToLower();
+                            <img src="~/Images/burgers/@(imageName).jpg" alt="@burger.Name" style="max-width: 200px; max-height: 150px;" />
+                        }
+                        <p>Price: $@burger.Price</p>
+                        <p>@(burger.IsVegan ? "Vegan" : burger.IsVegetarian ? "Vegetarian" : "Non-Vegetarian")</p>
+                        <p>Fries: @(burger.HasFries ? "Included" : "Not Included")</p>
+                        <div>
+                            <form asp-action="Edit" asp-controller="Burgers" method="get">
+                                <input type="hidden" name="id" value="@burger.Id" />
+                                <input type="submit" value="Edit" class="btn btn-primary" />
+                            </form><br />
+                            <form asp-action="Delete" asp-controller="Burgers" method="post">
+                                <input type="hidden" name="id" value="@burger.Id" />
+                                <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this burger?')" />
+                            </form>
+                        </div>
+                    </li>
+                </div>
+            }
+        }
+        else
+        {
+            <p>No burgers found in the menu.</p>
+        }
+    </div>
+    <a href="@Url.Action("Create", "Burgers")" class="btn btn-primary">Add Burger</a>
+</div>

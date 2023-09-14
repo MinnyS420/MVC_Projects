@@ -1,0 +1,50 @@
+﻿@model LocationViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Location</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Edit Location</h2>
+
+        @using (Html.BeginForm("Edit", "Locations", FormMethod.Post))
+        {
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name)
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Address)
+                @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.OpensAt)
+                    @Html.TextBoxFor(model => model.OpensAt, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.OpensAt, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.ClosesAt)
+                    @Html.TextBoxFor(model => model.ClosesAt, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ClosesAt, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-controller="Locations" asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        }
+    </div>
+
+    <!-- Bootstrap JS and jQuery (for dropdowns, modals, etc.) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

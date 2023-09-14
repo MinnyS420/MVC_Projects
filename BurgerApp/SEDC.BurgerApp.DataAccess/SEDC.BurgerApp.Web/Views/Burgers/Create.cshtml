@@ -1,0 +1,40 @@
+﻿@model SEDC.BurgerApp.ViewModels.BurgerViewModels.BurgerCreateViewModel
+
+<h2>Create a New Burger</h2>
+
+@using (Html.BeginForm("Create", "Burgers", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Price)
+        @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Price)
+    </div>
+
+    <div class="form-check">
+        @Html.LabelFor(model => model.IsVegan, new { @class = "form-check-label" })
+        @Html.CheckBoxFor(model => model.IsVegan, new { @class = "form-check-input" })
+        @Html.ValidationMessageFor(model => model.IsVegan)
+    </div>
+
+    <div class="form-check">
+        @Html.LabelFor(model => model.IsVegetarian, new { @class = "form-check-label" })
+        @Html.CheckBoxFor(model => model.IsVegetarian, new { @class = "form-check-input" })
+        @Html.ValidationMessageFor(model => model.IsVegetarian)
+    </div>
+
+    <div class="form-check">
+        @Html.LabelFor(model => model.HasFries, new { @class = "form-check-label" })
+        @Html.CheckBoxFor(model => model.HasFries, new { @class = "form-check-input" })
+        @Html.ValidationMessageFor(model => model.HasFries)
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Add Burger" class="btn btn-primary" />
+        <a asp-controller="Burgers" asp-action="Index" class="btn btn-secondary">Back to Menu</a>
+    </div>
+}

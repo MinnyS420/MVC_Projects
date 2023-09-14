@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.19">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SEDC.BurgerApp.Helpers\SEDC.BurgerApp.Helpers.csproj" />
+    <ProjectReference Include="..\SEDC.BurgerApp.Services\SEDC.BurgerApp.Services.csproj" />
+    <ProjectReference Include="..\SEDC.BurgerApp.ViewModels\SEDC.BurgerApp.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,28 @@
+﻿@model HomeIndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+    decimal averagePrice = Model.AverageOrderPrice;
+}
+
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to our Burger app!</h1>
+
+    <h2 class="mt-4">Most Ordered Burger:</h2>
+    <p class="lead">@Model.MostOrderedBurger</p>
+
+    @if (!string.IsNullOrEmpty(Model.MostOrderedBurgerImageName))
+    {
+        <img src="~/Images/burgers/@(Model.MostOrderedBurgerImageName).jpg" alt="@Model.MostOrderedBurger" class="img-fluid" style="max-width: 200px; max-height: 150px;" />
+    }
+
+    <h4 class="mt-4">We are popular! We have already had @Model.OrderCount orders!</h4>
+
+    <h2 class="mt-4">Average Order Price: $@Model.AverageOrderPrice.ToString("F2")</h2>
+    <h3 class="mt-4">List of all locations:</h3>
+    <ul class="list-group">
+        @foreach (var location in Model.Locations)
+        {
+            <li class="list-group-item">@location.Name - @location.Address</li>
+        }
+    </ul>
+</div>
