@@ -57,4 +57,3 @@ To understand the project better, familiarize yourself with the key components m
 1. Open the project using `SEDC.PizaaApp.Refactored.sln`.
 2. In Visual Studio, right-click on `SEDC.PizaaApp.Refactored.Web` and set it as the startup project.
 3. Start the application.
-4. 
