@@ -6,7 +6,6 @@ PizzaApp is a .NET MVC project designed to streamline the ordering process for p
 - [Features](#features)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
-- Application Overview
 - [How to Start the App](#how-to-start-the-app)
 
 ## Features
